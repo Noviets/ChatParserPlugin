@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>ChatParser.Tests</RootNamespace>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Compile the plugin source itself, so the tests exercise the file ACT loads. -->
+    <Compile Include="..\..\ChatParserPlugin.cs" />
+    <Compile Include="ReferenceParser.cs" />
+    <Compile Include="Harness.cs" />
+    <Compile Include="Program.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <!-- Copied next to the test exe: the plugin class implements IActPluginV1, so loading it needs ACT. -->
+    <Reference Include="Advanced Combat Tracker">
+      <HintPath>C:\Program Files (x86)\Advanced Combat Tracker\Advanced Combat Tracker.exe</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+</Project>
